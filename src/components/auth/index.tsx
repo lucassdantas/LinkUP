@@ -1,0 +1,103 @@
+import React, { useState } from 'react'
+import { Alert, View, Text, TouchableOpacity, Touchable, TextInput } from 'react-native'
+import { supabase } from '../../lib/supabase'
+import { Input } from 'react-native-elements'
+
+import { styles, Button, Title, ButtonText } from './styles'
+import AntDesignIcon from 'react-native-vector-icons/AntDesign'
+import EntypoIcon from 'react-native-vector-icons/Entypo'
+import { useFonts } from 'expo-font'
+
+export default function Auth() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [fontsLoaded] = useFonts({
+    'Inter-Black': require('../../assets/fonts/poppins/Poppins-Regular.ttf'),
+  });
+
+  async function signInWithEmail() {
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+
+    if (error) Alert.alert(error.message)
+    setLoading(false)
+  }
+
+  async function signUpWithEmail() {
+    setLoading(true)
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    })
+
+    if (error) Alert.alert(error.message)
+    if (!session) Alert.alert('Please check your inbox for email verification!')
+    setLoading(false)
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.backButtonContainer}>
+        <AntDesignIcon 
+          name='arrowleft'
+          size={30}
+          color='black'
+        />
+        {/* <AntDesignIcon
+          name='codesquare'
+          size={30}
+          color='red'
+        /> */}
+        <Text 
+          style={styles.backButton}
+          
+         >Voltar</Text>
+      </View>
+      <View style={styles.titleContainer}>
+        <Title>Entrar</Title>
+      </View>
+      <View style={styles.inputContainer} >
+        <Text style={styles.label}>Matrícula ou CPF</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="email@exemplo.com"
+          autoCapitalize={'none'}
+        />
+      </View>
+      <View style={styles.inputContainer} >
+        <Text style={styles.label}>Senha</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          secureTextEntry={true}
+          placeholder="Sua senha"
+          autoCapitalize={'none'}
+        />
+        <View style={styles.forgetPasswordContainer}>
+          <Text style={styles.forgetPasswordText}>Esqueceu a senha?</Text>
+        </View>
+      </View>
+      
+      {/* <View >
+        <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
+      </View> */}
+      <View style={styles.buttonContainer}>
+        <Button 
+          disabled={loading}
+          onPress={() => signInWithEmail()} >
+            <ButtonText style={styles.buttonText}>Entrar</ButtonText>
+        </Button>
+      </View>
+    </View>
+  )
+}
