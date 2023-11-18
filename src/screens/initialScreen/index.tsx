@@ -16,7 +16,7 @@ export function InitialScreen() {
           <Text style={styles.textoBoton}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('Cadastro')}>
+        <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('ConsultaMatricula')}>
           <Text style={styles.textoBoton}>Cadastar</Text>
         </TouchableOpacity>
       </View>

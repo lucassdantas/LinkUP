@@ -20,32 +20,29 @@ export default function ConsultaMatricula() {
 
   return (
     <View style={styles.container}>
-        
       <View style={styles.areainput}>
-      <SafeAreaView>
-      <View style={styles.back}>
-            <TouchableOpacity style={styles.buttonback} >
-            <Icon name='arrowleft' size={30} />
-            <Text style={styles.textback}>Voltar</Text>
-            </TouchableOpacity>
-      
-            <StatusBar style="auto" />
+        <SafeAreaView>
+          <View style={styles.back}>
+                <TouchableOpacity style={styles.buttonback} onPress={() => navigation.goBack()} >
+                  <Icon name='arrowleft' size={30} />
+                  <Text style={styles.textback}>Voltar</Text>
+                </TouchableOpacity>
+          
+                <StatusBar style="auto" />
+          </View>
+        </SafeAreaView>
+        <View>
+            <Text style={styles.cadastrotext}>Cadastro</Text>
+            <Text style={styles.buscarInformacoesText}>Buscar informações</Text>
+            <Text style={styles.inputtext}>Matrícula ou CPF</Text>
+            <TextInput style={styles.matriculaoucpf} onChangeText={handleInputChange}/>
+        </View>
+            
+        <TouchableOpacity style={[styles.button, botaoAtivo ? styles.botaoAtivo : styles.botaoInativo]} disabled={!botaoAtivo} onPress={()=>{navigation.navigate('Cadastro');}}>
+            <Text style={styles.avancar}>Avançar</Text>
+        </TouchableOpacity>
+          
       </View>
-      </SafeAreaView>
-      
-            <View>
-                <Text style={styles.cadastrotext}>Cadastro</Text>
-                <Text style={styles.buscarInformacoesText}>Buscar informações</Text>
-                <Text style={styles.inputtext}>Matrícula ou CPF</Text>
-                <TextInput style={styles.matriculaoucpf} onChangeText={handleInputChange}/>
-            </View>
-                
-            <TouchableOpacity style={[styles.button, botaoAtivo ? styles.botaoAtivo : styles.botaoInativo]} disabled={!botaoAtivo} onPress={()=>{navigation.navigate('Cadastro');}}>
-                <Text style={styles.avancar}>Avançar</Text>
-             </TouchableOpacity>
-        
-      </View>
-
     </View>
   );
 }

@@ -9,7 +9,7 @@ import { Config } from './Config';
 
 
 
-export default function App() {
+export  function ConfigureProfile() {
   const [fontsLoaded] = useFonts({ Poppins_400Regular, Poppins_700Bold});
   
   return (

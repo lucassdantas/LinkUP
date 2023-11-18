@@ -6,15 +6,16 @@ import { Input } from 'react-native-elements'
 import { styles, Button, Title, ButtonText } from './styles'
 import AntDesignIcon from 'react-native-vector-icons/AntDesign'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
-import { useFonts } from 'expo-font'
+import { useFonts, Poppins_700Bold, Poppins_400Regular, Poppins_500Medium } from '@expo-google-fonts/poppins';
+import { useNavigation } from '@react-navigation/native';
+import { StackTypes } from '../../routers/stack';
 
 export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [fontsLoaded] = useFonts({
-    'Inter-Black': require('../../assets/fonts/poppins/Poppins-Regular.ttf'),
-  });
+  const [fontsLoaded, fontsError] = useFonts({Poppins_700Bold, Poppins_400Regular, Poppins_500Medium})
+  const navigation = useNavigation<StackTypes>();
 
   async function signInWithEmail() {
     setLoading(true)
@@ -45,20 +46,19 @@ export default function Auth() {
   return (
     <View style={styles.container}>
       <View style={styles.backButtonContainer}>
-        <AntDesignIcon 
-          name='arrowleft'
-          size={30}
-          color='black'
-        />
-        {/* <AntDesignIcon
-          name='codesquare'
-          size={30}
-          color='red'
-        /> */}
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+        >
+          <AntDesignIcon 
+            name='arrowleft'
+            size={30}
+            color='black'
+          />
+        </TouchableOpacity>
         <Text 
           style={styles.backButton}
-          
-         >Voltar</Text>
+         >Voltar
+         </Text>
       </View>
       <View style={styles.titleContainer}>
         <Title>Entrar</Title>
