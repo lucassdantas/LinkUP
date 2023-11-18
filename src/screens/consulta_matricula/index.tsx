@@ -38,7 +38,19 @@ export default function ConsultaMatricula() {
             <TextInput style={styles.matriculaoucpf} onChangeText={handleInputChange}/>
         </View>
             
-        <TouchableOpacity style={[styles.button, botaoAtivo ? styles.botaoAtivo : styles.botaoInativo]} disabled={!botaoAtivo} onPress={()=>{navigation.navigate('Cadastro');}}>
+        <TouchableOpacity 
+          style={
+            [
+              styles.button, 
+              botaoAtivo ? styles.botaoAtivo : styles.botaoInativo
+            ]
+          } 
+          disabled={
+            !botaoAtivo
+          } 
+          onPress={
+            ()=>{navigation.navigate('Cadastro');}
+          }>
             <Text style={styles.avancar}>Avançar</Text>
         </TouchableOpacity>
           

@@ -1,7 +1,7 @@
 
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import styled from "styled-components/native";
-import theme from "../../../theme";
+import theme from "../../../../../theme";
 
 export type ButomTypeStyleProps = any;
 

@@ -50,7 +50,17 @@ export default function Cadastro() {
               <TextInput style={styles.matriculaoucpf} onChangeText={handleInputChange}/>
           </View>
 
-          <TouchableOpacity style={[styles.button, botaoAtivo ? styles.botaoAtivo : styles.botaoInativo]} disabled={!botaoAtivo} onPress={() => navigation.navigate('configuracoes')}>
+          <TouchableOpacity 
+            style={
+              [
+                styles.button, 
+                botaoAtivo ? styles.botaoAtivo : styles.botaoInativo
+              ]
+            } 
+            disabled={
+              !botaoAtivo
+            } 
+            onPress={() => navigation.navigate('Configuracoes')}>
               <Text style={styles.avancar}>Avançar</Text>
           </TouchableOpacity>
         </View>
