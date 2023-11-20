@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import  theme  from '../../theme'
-import { Config } from './Config';
+import {Screen} from './Screen'
 
 export  function ConfigureProfile() {
   const [fontsLoaded] = useFonts({ Poppins_400Regular, Poppins_700Bold});
@@ -16,7 +16,7 @@ export  function ConfigureProfile() {
         translucent
       />
       
-      {fontsLoaded ? <Config /> : <ActivityIndicator />}
+      {fontsLoaded ? <Screen /> : <ActivityIndicator />}
     </ThemeProvider>
  );
 }
