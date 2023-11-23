@@ -15,7 +15,7 @@ export function InitialScreen() {
           }}
         />
         
-        <TouchableOpacity style={styles.loginButton} onPress={ () => navigation.navigate('Configuracoes')}>
+        <TouchableOpacity style={styles.loginButton} onPress={ () => navigation.navigate('Login')}>
           <Text style={styles.buttonTextLogin}>Entrar</Text>
         </TouchableOpacity>
         
