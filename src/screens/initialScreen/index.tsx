@@ -15,11 +15,11 @@ export function InitialScreen() {
           }}
         />
         
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity style={styles.loginButton} onPress={ () => navigation.navigate('Configuracoes')}>
           <Text style={styles.buttonTextLogin}>Entrar</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity style={styles.registerButton} onPress={ () => navigation.navigate('Cadastro')}>
           <Text style={styles.buttonTextRegister}>Criar conta</Text>
         </TouchableOpacity>
       </View>
