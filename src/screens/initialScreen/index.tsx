@@ -20,7 +20,7 @@ export function InitialScreen() {
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.registerButton} onPress={ () => navigation.navigate('Cadastro')}>
-          <Text style={styles.buttonTextRegister}>Criar contaa</Text>
+          <Text style={styles.buttonTextRegister}>Criar conta</Text>
         </TouchableOpacity>
       </View>
 
