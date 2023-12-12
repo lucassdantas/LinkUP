@@ -7,6 +7,7 @@ import Cadastro from '../screens/cadastro';
 import {InitialScreen} from '../screens/initialScreen';
 import {Login} from '../screens/login'
 import {ConfigureProfile} from '../screens/configureProfile'
+import { FriendList } from '../screens/friendList';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function StackComponent() {
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Configuracoes" component={ConfigureProfile} />
+        <Stack.Screen name="friendsList" component={FriendList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
