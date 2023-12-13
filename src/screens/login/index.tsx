@@ -2,7 +2,7 @@ import 'react-native-url-polyfill/auto'
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 import Auth from '../../components/auth/'
-import Account from '../profile/'
+import {Profile} from '../profile/'
 import { SafeAreaView, StatusBar, View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { Session } from '@supabase/supabase-js'
 
@@ -32,7 +32,7 @@ export function Login() {
     return (
       <ThemeProvider theme={theme}>
         <SafeAreaView>
-          {session && session.user ?  <Account key={session.user.id} session={session} /> : <Auth /> }
+          {session && session.user ?  <Profile key={session.user.id} session={session} /> : <Auth /> }
         </SafeAreaView>
       </ThemeProvider>
     )
