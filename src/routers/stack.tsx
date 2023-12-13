@@ -8,6 +8,8 @@ import {InitialScreen} from '../screens/initialScreen';
 import {Login} from '../screens/login'
 import {ConfigureProfile} from '../screens/configureProfile'
 import { FriendList } from '../screens/friendList';
+import { Feed } from '../screens/feed';
+import { Profile } from '../screens/profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,7 @@ export default function StackComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Feed" component={Feed}  />
         <Stack.Screen name="Home" component={InitialScreen}  />
         <Stack.Screen name="ConsultaMatricula" component={ConsultaMatricula}  />
         <Stack.Screen name="Cadastro" component={Cadastro} />
