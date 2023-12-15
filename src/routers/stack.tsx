@@ -26,8 +26,8 @@ export default function StackComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Feed" component={Feed}  />
         <Stack.Screen name="Home" component={InitialScreen}  />
+        <Stack.Screen name="Feed" component={Feed}  />
         <Stack.Screen name="ConsultaMatricula" component={ConsultaMatricula}  />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Login" component={Login} />
