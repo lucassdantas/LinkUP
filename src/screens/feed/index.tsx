@@ -26,7 +26,7 @@ export const Feed = () => {
         renderItem={renderPost}
         keyExtractor={(item) => item.id}
       />
-      <BottomMenu/>
+      {/* <BottomMenu/> */}
     </View>
   );
 };
